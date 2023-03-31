@@ -1,0 +1,44 @@
+<div class="container my-5">
+    <div class="card border-info mb-3" style="max-width: 30rem;">
+      <div class="card-header"><h3>User Registration Form</h3></div>
+      <div class="card-body">
+        <form #userReg="ngForm" (ngSubmit)="submit(userReg)">
+            <div class="form-group">
+                <label for="uname">Enter User ID:</label>
+                <input type="text" #userName="ngModel" minlength="6" required name="userName" class="form-control" ngModel>
+                <div *ngIf="userName.touched&&userName.invalid" class="alert alert-danger">
+                  <p *ngIf="userName.errors?.['required']">user Id required</p>                  
+                  <p *ngIf="userName.errors?.['minlength']">name must be min 6 char required</p>
+                </div>
+              </div>
+
+          <div class="form-group">
+            <label for="email">Enter Email Id</label>
+            <input type="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required
+              name="email" class="form-control" ngModel >
+            <div *ngIf="email.touched&&email.invalid" class="alert alert-danger">
+              <p *ngIf="email.errors?.['required']">Email Id required</p>
+              <p *ngIf="email.errors?.['pattern']">Enter Valid Email</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="userpass">Enter Password</label>
+            <input type="password" #password="ngModel"  minlength="8" required name="password" class="form-control" ngModel>
+            <div *ngIf="password.touched&&password.invalid" class="alert alert-danger">
+              <p *ngIf="password.errors?.['required']">Password required</p>
+              <p *ngIf="password.errors?.['minlength']">Password min 8 char required</p>
+            </div>
+          </div>
+
+          
+  
+          <button [disabled]="userReg.invalid"  class="btn btn-primary my-3" type="submit">Register</button>
+          <button class="btn btn-danger mx-3" type="reset">Reset </button>
+          <br>
+          
+        </form>
+        
+      </div>
+    </div>
+  </div>

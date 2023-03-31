@@ -1,0 +1,35 @@
+<div class="container my-5" >
+
+
+<div  *ngIf="canDetails">
+    <div *ngFor="let can of canDetails" class="card border-success" style="width: auto;">
+        <div class="row no-gutters">
+            <div class="col-sm-3">   
+                <img class="card-img" style="height: 50px; width:50px ;" [src]=getSantizeUrl(can.photoPath)  alt="Cart Image">
+            </div>
+            <div class="col-sm-9 ">
+                <div class="card-body mx-3">
+                    <h5 class="card-title">Candidate Id: {{can.cid}}</h5>
+                    <hr>
+                    <p class="card-text">Candidate Name: {{can.cname}}</p>
+                    <hr>
+                    <p class="card-text">Mobile No: {{can.mobileNo}}</p>
+                    <hr>
+                    <p class="card-text">Full Adrress: : {{can.address}}  </p>
+                    <hr>
+                    <p class="card-text"> skills : {{can.skills}}  </p>
+                    <hr>
+                    <p class="card-text"> hobbies : {{can.hobbies}}  </p>
+                    <hr>
+                    
+                    <button class="btn btn-success" >Download In excel Format </button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+</div>   
+    
+   
